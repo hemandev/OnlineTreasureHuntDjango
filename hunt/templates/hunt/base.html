@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title_block %} Login {% endblock %}</title>
+    {% load staticfiles %}
+    <link href="{% static 'hunt/bootstrap.css' %}" rel="stylesheet">
+    {% block script_head %} {% endblock %}
+    <link href={% block style %}"{% static 'hunt/style.css' %}"{% endblock %} rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}">
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <script src="{% static 'hunt/js/jquery-3.2.1.min.js'%}" type="text/javascript"></script>
+
+<script>
+    window.CSRF_TOKEN = '{{ csrf_token }}'
+</script>
+    <script src="{% static 'hunt/js/script.js' %}" type="text/javascript"></script>
+
+
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-default" id="nav-bar">
+
+
+    <div class="container-fluid">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynav">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="{% url 'hunt:home' %}"><strong> Treasure Hunt </strong></a>
+
+        </div>
+
+        <div class="collapse navbar-collapse" id="mynav">
+
+            <ul class="nav navbar-nav">
+
+                <li class="{% block leaderboard_active %} {% endblock %}"><a href="{% url 'hunt:leaderboard' %}"><span
+                        class="glyphicon glyphicon-stats"></span> Leaderboard </a></li>
+                <li class="{% block rules_active %} {% endblock %}"><a href="{% url 'hunt:rules' %}"><span
+                        class="glyphicon glyphicon-alert"></span> Rules </a></li>
+
+            </ul>
+
+
+            <ul class="nav navbar-nav navbar-right">
+                {% block admin_block %}
+                <li class="dropdown ">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin Panel
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Users</a></li>
+                        <li><a href="{% url 'hunt:levels' %}">Levels</a></li>
+
+                    </ul>
+                </li>
+
+                {% endblock %}
+
+                <li><a href="http://www.fb.com/reviewsnext" target="_blank"><span
+                        class="glyphicon glyphicon-cloud"></span> Clues </a></li>
+                <li><a href="{% url 'hunt:login' %}"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
+
+
+            </ul>
+
+
+        </div>
+    </div>
+
+
+</nav>
+
+{% block body_block %} {% endblock %}
+
+</body>
+
+
+</html>

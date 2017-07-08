@@ -1,0 +1,29 @@
+.navbar-brand{
+    font-family: 'Satisfy', cursive;
+}
+
+.col-md-4{
+
+    background-color: white;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+#nav-bar{
+    margin-bottom: 0px;
+}
+
+#cont-fluid{
+    padding-left: 0;
+    padding-right: 0;
+    background-image: url("images/bg.jpg");
+    min-height: 600px;
+}
+
+
+#cont{
+    color: white;
+    font-weight: 200;
+}
+

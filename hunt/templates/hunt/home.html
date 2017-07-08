@@ -1,0 +1,44 @@
+{% extends 'hunt/base.html' %}
+{% block title_block %} Treasure Hunt {% endblock %}
+{% load staticfiles %}
+{% block admin_block %} {% endblock %}
+{% block body_block %}
+
+
+    <div class="container-fluid" id="cont-fluid">
+
+
+        <!-- <img src="{% static 'hunt/images/bg.jpg' %}" class="" id="bgimg" height="600"> -->
+
+        <div class="row">
+
+            <br>
+            <br>
+            <br>
+
+            <div class="col-md-offset-1" id="cont">
+
+
+                <h1>An Exciting Online Treasure Hunt!</h1>
+
+                <h2>Get Ready to feel the thrill of your lifetime</h2>
+
+                <h3> Winner takes all</h3>
+
+
+                <a class="btn btn-primary btn-lg "
+                   href="https://www.facebook.com/v2.8/dialog/oauth?client_id=1901884306696195&redirect_uri=http://localhost/login/"><span
+                        class="glyphicon glyphicon-chevron-left"></span> Login With Facebook </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+{% endblock %}

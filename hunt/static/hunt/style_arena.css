@@ -1,0 +1,25 @@
+.navbar-brand{
+    font-family: 'Satisfy', cursive;
+}
+
+
+#answer-container-id{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: #5e5e5e;
+    z-index: 1000;
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    color: #1b6d85;
+}
+
+#modal-dialog{
+    top: 20%;
+}
+
+#container-id{
+    position: relative;
+}
+
