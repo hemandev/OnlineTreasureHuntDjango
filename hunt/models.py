@@ -21,7 +21,7 @@ class UserModel(models.Model):
 class LevelModel(models.Model):
     level_no = models.IntegerField()
     question_text = models.TextField()
-    question_image = models.FileField(upload_to='levels/')
+    question_image = models.ImageField(upload_to='levels/')
     answer = models.CharField(max_length=100)
     placeholder_ans = models.CharField(max_length=100, default='Answer')
     title = models.CharField(max_length=100)
