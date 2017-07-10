@@ -1,0 +1,41 @@
+{% extends 'hunt/base.html' %}
+{% block title_block %} Leaderboard {% endblock %}
+{% block body_block %}
+
+
+    <div class="container">
+
+        <table class="table table-responsive" style="margin-top: 50px;">
+
+            <thead>
+            <tr class="bg-success">
+
+                <td> Name</td>
+                <td> College</td>
+                <td> Level</td>
+
+
+            </tr>
+            </thead>
+
+            {% for item in list %}
+
+                <tr>
+
+                    <td> {{ item.name }}</td>
+                    <td> {{ item.college }}</td>
+                    <td> {{ item.level }}</td>
+
+                </tr>
+
+
+
+            {% endfor %}
+
+
+        </table>
+
+
+    </div>
+
+{% endblock %}

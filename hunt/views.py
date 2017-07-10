@@ -46,11 +46,23 @@ def home_view(request):
 
 
 def rules_view(request):
-    return render(request, 'hunt/home.html')
+
+    return render(request, 'hunt/rules.html')
 
 
 def leaderboard_view(request):
-    return render(request, 'hunt/home.html')
+
+    user_object = UserModel.objects.all()
+    users = []
+    for i in range(len(user_object)):
+
+        details = {'name': user_object[i].name,
+                   'college': user_object[i].college,
+                   'level': user_object[i].level}
+        users.append(details)
+    sorted_list = sorted(users, key=lambda x: x['level'], reverse=True)
+
+    return render(request, 'hunt/leaderboard.html', {'list': sorted_list})
 
 
 def arena_view(request):
@@ -59,15 +71,11 @@ def arena_view(request):
     else:
         user = UserModel.objects.get(uid__exact=request.session['uid'])
         level_no = user.level
-        level = LevelModel.objects.get(level_no__exact=level_no)
+        try:
+            level = LevelModel.objects.get(level_no__exact=level_no)
+        except:
+            return render(request, 'hunt/arena.html', {'level': False})
         print("PATH" + level.question_image.path)
-
-        if request.method == 'POST':
-            answer = request.POST['answer']
-            if str(answer).lower().strip() == str(answer).lower().strip():
-                return JsonResponse({'answer': True})
-            else:
-                return JsonResponse({'answer': False})
 
         return render(request, 'hunt/arena.html', {'level': level, 'user': user})
 

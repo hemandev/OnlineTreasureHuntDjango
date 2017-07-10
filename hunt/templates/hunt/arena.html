@@ -58,6 +58,11 @@
         <br>
         <br>
 
+    {% if not level %}
+
+    <h1> You are at the highest level!!!</h1>
+
+    {% else %}
         <div class="col-md-8 col-md-offset-2" style="position: relative;">
 
             <div class="panel panel-default" style="min-height: 500px; background-color: lightgrey;">
@@ -92,6 +97,9 @@
 
 
         </div>
+
+
+    {% endif %}
 
 
     </div>
